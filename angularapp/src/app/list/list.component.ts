@@ -7,16 +7,13 @@ import { Player } from 'src/models/player.model';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-playerdata:Player[]=[]
 export class ListComponent implements OnInit {
+  playerdata:Player[]=[]
 
   constructor(private as:AdminService ) {
     this.as.getPlayers().subscribe(data=>{this.playerdata.push(...data)})
    }
-  //  constructor(private ad:AdminService) {
-  //   this.ad.getPlayers().subscribe(data=>{this.players.push(...data)});
-  //   console.log(this.players);
-  // }
+
 
   ngOnInit(): void {
   }

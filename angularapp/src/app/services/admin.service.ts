@@ -21,10 +21,10 @@ export class AdminService {
     return this.httpclient.get<any[]>(this.url + '/ShowTeams');
   }
  
-  httpOptions={headers:new HttpHeaders({'Content-type':'application/json'})}
+  // httpOptions={headers:new HttpHeaders({'Content-type':'application/json'})}
  
-  createTeam(newTeam:Team):Observable<Team>
-  {
-    return this.httpclient.post<Team>(this.url + '/AddTeam',newTeam,this.httpOptions);
-  }
+  // createTeam(newTeam:Team):Observable<Team>
+  // {
+  //   return this.httpclient.post<Team>(this.url + '/AddTeam',newTeam,this.httpOptions);
+  // }
 }

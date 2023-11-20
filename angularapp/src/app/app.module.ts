@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
 import { ListComponent } from './list/list.component';
+import { ListTeamComponent } from './list-team/list-team.component';
 // import { TeamComponent } from './team/team.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerComponent,
-    ListComponent
+    ListComponent,
+    ListTeamComponent
     
   ],
   imports: [

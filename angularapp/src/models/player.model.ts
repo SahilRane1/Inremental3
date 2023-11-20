@@ -1,4 +1,4 @@
-export class Player {
+export interface Player {
     id:number;
     teamid:number;
     name:string;
@@ -7,3 +7,4 @@ export class Player {
     biddingPrice:number;
 
 }
+
