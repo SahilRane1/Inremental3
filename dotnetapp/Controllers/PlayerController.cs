@@ -16,6 +16,10 @@ namespace dotnetapp.Controllers
         {
             _context = context;
         }
+        public IActionResult Register(){
+                return OK;
+        }
+
 
         
     }
