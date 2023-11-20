@@ -18,10 +18,14 @@ namespace dotnetapp.Controllers
         {
             context = _context;
         }
+        [HttpGet]
+        [Route("GetPlayers")]
         public IActionResult GetPlayers(){
             var data=context.Players.ToList();
             return Ok(data);            
         }
+        [HttpGet]
+        [Route("GetTeams")]
         public IActionResult GetTeams(){
             var data=context.Teams.ToList();
             return Ok(data);
