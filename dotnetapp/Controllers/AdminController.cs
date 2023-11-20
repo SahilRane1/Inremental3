@@ -26,39 +26,43 @@ namespace dotnetapp.Controllers
             var data=context.Teams.ToList();
             return Ok(data);
         }
-        // [HttpPut]
-        // [Route("EditPlayer/{id}")]
-        // public IActionResult PutPlayer(int id,Player p){
-        //     Player pl=context.Players.Find(id);
-        //     if(ModelState.IsValid){
-        //          pl.Id=p.Id;
-        //         pl.Name=p.Name;
-        //         pl.Age=p.Age;
-        //         pl.BiddingPrice=p.BiddingPrice;
-        //         pl.Category=p.Category;
-        //         context.SaveChanges();
-        //     }
-        //         return Ok();
-
-           
-        // }     
-          [HttpPut]
+        [HttpPut]
         [Route("EditPlayer/{id}")]
-        public IActionResult PutPlayer(int id ,Player players)
-        {
-            var data = context.Players.Find(id);
- 
-            if(ModelState.IsValid)
-            {
-                Player player = new Player{};
-                player.Age = players.Age;
-                player.Name = players.Name;
-                player.Category = players.Category;
-                player.BiddingPrice = players.BiddingPrice;
+        public IActionResult PutPlayer(int id,Player p){
+            Player pl=context.Players.Find(id);
+            if(ModelState.IsValid){
+                 pl.Id=p.Id;
+                pl.Name=p.Name;
+                pl.Age=p.Age;
+                pl.BiddingPrice=p.BiddingPrice;
+                pl.Category=p.Category;
                 context.SaveChanges();
             }
-            return Ok();                
+                return Ok();
+
            
-        }
+        }     
+        //   [HttpPut]
+        // [Route("EditPlayer/{id}")]
+        // public IActionResult PutPlayer(int id ,Player players)
+        // {
+        //     var data = context.Players.Find(id);
+ 
+        //     if(ModelState.IsValid)
+        //     {
+        //         Player player = new Player{};
+        //         player.Age = players.Age;
+        //         player.Name = players.Name;
+        //         player.Category = players.Category;
+        //         player.BiddingPrice = players.BiddingPrice;
+        //         context.SaveChanges();
+        //     }
+        //     return Ok();                
+           
+        // }
+
+        [HttpDelete]
+        [Route("DeletePlayer/{id}")]
+        
     }
 }
