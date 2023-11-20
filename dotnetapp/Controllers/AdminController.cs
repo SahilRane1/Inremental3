@@ -29,15 +29,25 @@ namespace dotnetapp.Controllers
         [HttpPut]
         [Route("EditPlayer/{id}")]
         public IActionResult PutPlayer(int id,Player p){
-            Player pl=context.Players.Find(id);
-            if(ModelState.IsValid){
-                 pl.Id=p.Id;
-                pl.Name=p.Name;
-                pl.Age=p.Age;
-                pl.BiddingPrice=p.BiddingPrice;
-                pl.Category=p.Category;
-                context.SaveChanges();
-            }
+            // Player pl=context.Players.Find(id);
+            // if(ModelState.IsValid){
+            //     //  pl.Id=p.Id;
+            //     pl.Name=p.Name;
+            //     pl.Age=p.Age;
+            //     pl.BiddingPrice=p.BiddingPrice;
+            //     pl.Category=p.Category;
+            //     context.SaveChanges();
+            // }
+                // Player player = new Player{};
+
+                var player = new Player
+            {
+                Id= 1,
+                Name = "John Doe",
+                Age= 24,
+                BiddingPrice= 25,
+                Category="asd"
+            };
                 return Ok();
 
            
@@ -50,7 +60,6 @@ namespace dotnetapp.Controllers
  
         //     if(ModelState.IsValid)
         //     {
-        //         Player player = new Player{};
         //         player.Age = players.Age;
         //         player.Name = players.Name;
         //         player.Category = players.Category;
@@ -63,6 +72,11 @@ namespace dotnetapp.Controllers
 
         [HttpDelete]
         [Route("DeletePlayer/{id}")]
-        
+        public IActionResult DeletePlayer(int id,Player p){
+            var data=context.Players.Find(id);
+            context.Players.Remove(data);
+            context.SaveChanges();
+            return Ok();
+        }
     }
 }
