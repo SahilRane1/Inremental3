@@ -27,6 +27,7 @@ namespace dotnetapp.Controllers
             return Ok(data);
         }
         public IActionResult PutPlayer(int id,Player p){
+            
 
         }
    
