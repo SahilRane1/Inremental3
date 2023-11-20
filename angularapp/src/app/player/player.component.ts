@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../services/admin.service';
-import { Player } from '../model/player';
+import { Player } from '../../models/player.model';
 
 @Component({
   selector: 'app-player',
@@ -8,15 +8,17 @@ import { Player } from '../model/player';
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
- players:
+ players:Player[]
+ newPlayer:Player
   // playerdata:any[]=[]
   constructor(private as:AdminService) {
-    this.as.getPlayers().subscribe(data=>{
-      this.playerdata.push(...data)
-    })
-   }
+    // this.as.getPlayers().subscribe(data=>{
+    //   this.playerdata.push(...data)
+    }
+   
 
   ngOnInit(): void {
   }
 
 }
+

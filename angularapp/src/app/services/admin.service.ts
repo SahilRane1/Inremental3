@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import{HttpClient} from '@angular/common/http'
+import{HttpClient, HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { Player } from '../model/player';
-import { Team } from '../model/team';
+import { Player } from '../../models/player.model';
+import { Team } from '../../models/team.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,4 +16,11 @@ export class AdminService {
   getTeams():Observable<Team[]>{
     return this.httpclient.get<any[]>(this.url+'/ShowTeams')
   }
+  httpOptions={headers:new HttpHeaders({'Content-type':'application/json'})}
+ 
+  createTeam(newTeam:Team):Observable<Team>
+  {
+    return this.httpclient.post<Team>(this.url + '/AddTeams',newTeam,this.httpOptions);
+  }
+
 }
