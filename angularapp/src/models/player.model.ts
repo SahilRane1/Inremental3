@@ -1,2 +1,2 @@
-export interface Player.Model {
+export class Player {
 }

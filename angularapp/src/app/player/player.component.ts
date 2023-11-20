@@ -8,7 +8,8 @@ import { Player } from '../model/player';
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
-  playerdata:any[]=[]
+ players:
+  // playerdata:any[]=[]
   constructor(private as:AdminService) {
     this.as.getPlayers().subscribe(data=>{
       this.playerdata.push(...data)
