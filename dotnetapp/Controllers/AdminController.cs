@@ -23,8 +23,10 @@ namespace dotnetapp.Controllers
         }
         [HttpPost]
         [Route("AddPlayer")]
-        public IActionResult Create(){
-            
+        public IActionResult Create(Player p){
+            context.Players.Add(p);
+            context.SaveChanges();
+            return Ok();
         }
 
         [HttpGet]
