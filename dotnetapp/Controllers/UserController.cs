@@ -22,9 +22,11 @@ namespace dotnetapp.Controllers
             return Ok();
         }
         public IActionResult Login(User u){
-            return Ok();
-            
+            if(ModelSatate.IsValid){
+                
 
+            }
+            return Ok();
         }
 
         

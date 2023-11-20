@@ -16,15 +16,7 @@ namespace dotnetapp.Controllers
         {
             context = _context;
         }
-        public IActionResult Register(User u){
-            context.Users.Add(u);
-            context.SaveChanges();
-            return Ok();
-        }
-        // public IActionResult Login(User u){
-
-
-        // }
+       
 
 
         
