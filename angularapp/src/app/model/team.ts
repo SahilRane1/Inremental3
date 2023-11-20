@@ -1,4 +1,4 @@
-export interface ITeam {
+export interface Team {
     teamid:number;
     teamname:string;
 }
