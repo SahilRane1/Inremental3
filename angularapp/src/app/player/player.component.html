@@ -10,12 +10,16 @@
     </thead>
     <tbody>
         <tr *ngFor="let p of playerdata">
-            <td>{{p.id}}</td>
+            <ul>
+                <li><td>{{p.id}}</td></li>
+            </ul>
+            <ul></ul>
+            
             <td>{{p.teamId}}</td>
             <td>{{p.name}}</td>
             <td>{{p.age}}</td>
             <td>{{p.category}}</td>
-            <td>{{p.biddingPrice}}</td>
+            <td>{{p.biddingPrice}}</td>    
         </tr>
     </tbody>
 </table>
