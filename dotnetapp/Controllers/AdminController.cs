@@ -38,8 +38,8 @@ namespace dotnetapp.Controllers
             //     pl.Category=p.Category;
             //     context.SaveChanges();
             // }
-                // Player player = new Player{};
-
+            Player pl=context.Players.Find(id);
+            if(ModelState.IsValid){
                 var player = new Player
             {
                 Id= 1,
@@ -48,6 +48,7 @@ namespace dotnetapp.Controllers
                 BiddingPrice= 25,
                 Category="asd"
             };
+            }
                 return Ok();
 
            
@@ -72,11 +73,13 @@ namespace dotnetapp.Controllers
 
         [HttpDelete]
         [Route("DeletePlayer/{id}")]
-        public IActionResult DeletePlayer(int id,Player p){
+        public IActionResult DeletePlayer(int id){
+            
             var data=context.Players.Find(id);
             context.Players.Remove(data);
             context.SaveChanges();
             return Ok();
+                // Player player = new Player{};
         }
     }
 }
