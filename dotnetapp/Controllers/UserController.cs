@@ -6,7 +6,8 @@ using dotnetapp.Models;
 
 namespace dotnetapp.Controllers
 {
-    
+    [ApiController]
+    [Route("/[controller]")]
 
     public class UserController : ControllerBase
     {

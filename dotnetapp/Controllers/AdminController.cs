@@ -71,15 +71,26 @@ namespace dotnetapp.Controllers
            
         // }
 
-        [HttpDelete]
+       [HttpDelete]
         [Route("DeletePlayer/{id}")]
-        public IActionResult DeletePlayer(int id){
-            
-            var data=context.Players.Find(id);
-            context.Players.Remove(data);
-            context.SaveChanges();
-            return Ok();
-                // Player player = new Player{};
+        public IActionResult DeletePlayer(int id)
+        {
+            try
+            {
+                var detail = context.Players.Where(d=>d.Id==id);
+                if(detail.Count() != 0)
+                {
+                    throw new Exception("Cannot Delete Player");
+                }
+                var data = context.Players.Find(id);
+                context.Players.Remove(data);
+                context.SaveChanges();
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
