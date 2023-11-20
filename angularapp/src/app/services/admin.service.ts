@@ -9,7 +9,7 @@ export class AdminService {
   private url="https://8080-bdbdeccefddbfacbbecabcdadeafbbdcaeafe.premiumproject.examly.io/Admin";
 
   constructor(private httpclient:HttpClient) { }
-  getPlayers():Observable<Player[]>{
-    return this.httpclient.get<Player[]>(this.url+'/ShowPlayers')
+  getPlayers():Observable<any[]>{
+    return this.httpclient.get<any[]>(this.url+'/ShowPlayers')
   }
 }
