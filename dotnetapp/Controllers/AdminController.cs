@@ -26,6 +26,9 @@ namespace dotnetapp.Controllers
             var data=context.Teams.ToList();
             return Ok(data);
         }
+        public IActionResult PutPlayer(int id,Player p){
+
+        }
    
 
         
