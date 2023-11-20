@@ -10,11 +10,21 @@ namespace dotnetapp.Controllers
 {
     public class AdminController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext context;
 
-        public AdminController(ApplicationDbContext context)
+        public AdminController(ApplicationDbContext _context)
         {
-            _context = context;
+            context = _context;
+        }
+        public IActionResult Register(User u){
+            context.Users.Add(u);
+            context.SaveChanges();
+            return Ok();
+        }
+        public IActionResult Login(User u){
+            return Ok();
+            
+
         }
 
         

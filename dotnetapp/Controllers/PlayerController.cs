@@ -10,15 +10,21 @@ namespace dotnetapp.Controllers
 
     public class PlayerController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext context;
 
-        public PlayerController(ApplicationDbContext context)
+        public PlayerController(ApplicationDbContext _context)
         {
-            _context = context;
+            context = _context;
         }
-        public IActionResult Register(){
-                return OK;
+        public IActionResult Register(User u){
+            context.Users.Add(u);
+            context.SaveChanges();
+            return Ok();
         }
+        // public IActionResult Login(User u){
+
+
+        // }
 
 
         
