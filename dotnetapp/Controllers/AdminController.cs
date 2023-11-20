@@ -27,6 +27,14 @@ namespace dotnetapp.Controllers
             return Ok(data);
         }
         public IActionResult PutPlayer(int id,Player p){
+            Player pl=context.Players.Find(id);
+            pl.Id=p.Id;
+            pl.Name=p.Name;
+            pl.Age=p.Age;
+            pl.BiddingPrice=p.BiddingPrice;
+            pl.Category=p.Category;
+            ContextBoundObject.SaveChanges();
+            return Ok();
             
 
         }
