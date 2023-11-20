@@ -4,5 +4,5 @@ export interface Player {
     name:string;
     age:number;
     category:string;
-    biddingprice:number;
+    biddingPrice:number;
 }
