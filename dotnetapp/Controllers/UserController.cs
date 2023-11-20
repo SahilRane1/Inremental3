@@ -21,9 +21,9 @@ namespace dotnetapp.Controllers
             context.SaveChanges();
             return Ok();
         }
-        public IActionResult Login(User u){
+        public IActionResult Login(User U){
             if(ModelSatate.IsValid){
-                
+                var data=context.Users.FirstOrDefault(u=>u.Name==U.Name && u.)
 
             }
             return Ok();
