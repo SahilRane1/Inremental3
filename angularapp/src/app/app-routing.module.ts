@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PlayerComponent } from './player/player.component';
 
 const routes: Routes = [
-  {path:'showplayers',component:PlayerComponent}
+  {path:'Showplayers',component:PlayerComponent}
 ];
 
 @NgModule({
