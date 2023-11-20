@@ -22,9 +22,9 @@ namespace dotnetapp.Controllers
             return Ok();
         }
         public IActionResult Login(User U){
-            if(ModelSatate.IsValid){
-                var data=context.Users.FirstOrDefault(u=>u.Name==U.Name && u.)
-
+            if(ModelState.IsValid){
+                var data=context.Users.FirstOrDefault(u=>u.Name==U.Name && u.password==U.password);
+                return RedirectToAction("Login",U);
             }
             return Ok();
         }

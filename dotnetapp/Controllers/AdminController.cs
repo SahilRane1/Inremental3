@@ -16,6 +16,14 @@ namespace dotnetapp.Controllers
         {
             context = _context;
         }
+        public IActionResult GetPlayers(){
+            var data=context.Players.ToList();
+            return Ok(data);            
+        }
+        public IActionResult GetTeams(){
+            var data=context.Teams.ToList();
+            return Ok(data);
+        }
    
 
         
