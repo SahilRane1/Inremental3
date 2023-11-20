@@ -18,6 +18,7 @@ namespace dotnetapp.Controllers
         {
             context = _context;
         }
+         [Route("AddPlayer")]
         public IActionResult Create(){
             return Ok();
         }
@@ -26,7 +27,7 @@ namespace dotnetapp.Controllers
         public IActionResult Create(Player p){
             context.Players.Add(p);
             context.SaveChanges();
-            return Ok();
+            return Created("Player Added Successfully",p);
         }
 
         [HttpGet]
