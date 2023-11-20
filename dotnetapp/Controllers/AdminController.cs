@@ -18,16 +18,20 @@ namespace dotnetapp.Controllers
         {
             context = _context;
         }
-         [Route("AddPlayer")]
-        public IActionResult Create(){
-            return Ok();
-        }
+       
         [HttpPost]
         [Route("AddPlayer")]
-        public IActionResult Create(Player p){
+        public IActionResult PostPlayer(Player p){
             context.Players.Add(p);
             context.SaveChanges();
             return Created("Player Added Successfully",p);
+        }
+        [HttpPost]
+        [Route("AddTeam")]
+        public IActionResult PostTeam(Team t){
+            context.Teams.Add(t);
+            context.SaveChanges();
+            return Created("Team Added Successfully",t);
         }
 
         [HttpGet]
