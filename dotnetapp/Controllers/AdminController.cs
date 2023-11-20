@@ -50,15 +50,13 @@ namespace dotnetapp.Controllers
         [Route("EditPlayer/{id}")]
         public IActionResult PutPlayer(int id,Player p){
             Player pl=context.Players.Find(id);
-            if(ModelState.IsValid){
-                 pl.Id=p.Id;
                 pl.Name=p.Name;
                 pl.Age=p.Age;
                 pl.BiddingPrice=p.BiddingPrice;
                 pl.Category=p.Category;
                 context.SaveChanges();
                 return Ok();
-            }
+            // }
             // Player pl=context.Players.Find(id);
             // if(ModelState.IsValid){
             //     var player = new Player
@@ -98,11 +96,7 @@ namespace dotnetapp.Controllers
         {
             try
             {
-                var detail = context.Players.Where(d=>d.Id==id);
-                if(detail.Count() != 0)
-                {
-                    throw new Exception("Cannot Delete Player");
-                }
+                
                 var data = context.Players.Find(id);
                 context.Players.Remove(data);
                 context.SaveChanges();
