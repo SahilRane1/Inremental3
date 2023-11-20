@@ -6,8 +6,8 @@ using dotnetapp.Models;
 
 namespace dotnetapp.Controllers
 {
-    [ApiController]
-    [Route("/[controller]")]
+    // [ApiController]
+    // [Route("[controller]")]
 
     public class UserController : ControllerBase
     {
@@ -17,10 +17,11 @@ namespace dotnetapp.Controllers
         {
             context = _context;
         }
+        
          public IActionResult Register(User u){
             context.Users.Add(u);
             context.SaveChanges();
-            return Ok();
+            return RedirectToAction("Login");
         }
         public IActionResult Login(User U){
             if(ModelState.IsValid){

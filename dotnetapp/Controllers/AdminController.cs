@@ -18,14 +18,23 @@ namespace dotnetapp.Controllers
         {
             context = _context;
         }
+        public IActionResult Create(){
+            return Ok();
+        }
+        [HttpPost]
+        [Route("AddPlayer")]
+        public IActionResult Create(){
+            
+        }
+
         [HttpGet]
-        [Route("GetPlayers")]
+        [Route("ShowPlayers")]
         public IActionResult GetPlayers(){
             var data=context.Players.ToList();
             return Ok(data);            
         }
         [HttpGet]
-        [Route("GetTeams")]
+        [Route("ShowTeams")]
         public IActionResult GetTeams(){
             var data=context.Teams.ToList();
             return Ok(data);
