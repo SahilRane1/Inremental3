@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GetpComponent } from './getp.component';
+import { EditplayerComponent } from './editplayer.component';
 
-describe('GetpComponent', () => {
-  let component: GetpComponent;
-  let fixture: ComponentFixture<GetpComponent>;
+describe('EditplayerComponent', () => {
+  let component: EditplayerComponent;
+  let fixture: ComponentFixture<EditplayerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GetpComponent ]
+      declarations: [ EditplayerComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GetpComponent);
+    fixture = TestBed.createComponent(EditplayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
