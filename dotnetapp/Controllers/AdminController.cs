@@ -44,20 +44,39 @@ namespace dotnetapp.Controllers
         [Route("ShowTeams")]
         public IActionResult GetTeams(){
             var data=context.Teams.ToList();
+           
             return Ok(data);
         }
         [HttpPut]
         [Route("EditPlayer/{id}")]
-        public IActionResult PutPlayer(int id,Player p){
-            Player pl=context.Players.Find(id);
-                pl.Name=p.Name;
-                pl.TeamId=p.TeamId;
-                pl.Age=p.Age;
-                pl.BiddingPrice=p.BiddingPrice;
-                pl.Category=p.Category;
+        public IActionResult PutPlayer(int id, Player Player)
+        {
+            if(ModelState.IsValid)
+            {
+                Player mv = context.Players.Find(id);
+                mv.Name = Player.Name;
+                mv.Age = Player.Age;
+                mv.Category = Player.Category;
+                mv.BiddingPrice = Player.BiddingPrice;
                 context.SaveChanges();
                 return Ok();
-            // }
+               
+ 
+ 
+ 
+            }
+        // [HttpPut]
+        // [Route("EditPlayer/{id}")]
+        // public IActionResult PutPlayer(int id,Player p){
+        //     Player pl=context.Players.Find(id);
+        //         pl.Name=p.Name;
+        //         pl.TeamId=p.TeamId;
+        //         pl.Age=p.Age;
+        //         pl.BiddingPrice=p.BiddingPrice;
+        //         pl.Category=p.Category;
+        //         context.SaveChanges();
+        //         return Ok();
+        //     // }
             // Player pl=context.Players.Find(id);
             // if(ModelState.IsValid){
             //     var player = new Player
