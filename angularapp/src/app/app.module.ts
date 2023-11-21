@@ -8,8 +8,7 @@ import { ListComponent } from './list/list.component';
 import { ListTeamComponent } from './list-team/list-team.component';
 import { HomeComponent } from './home/home.component';
 import { AddplayerComponent } from './addplayer/addplayer.component';
-// import { TeamComponent } from './team/team.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +22,8 @@ import { AddplayerComponent } from './addplayer/addplayer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
