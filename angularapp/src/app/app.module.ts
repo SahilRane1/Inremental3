@@ -9,6 +9,7 @@ import { ListTeamComponent } from './list-team/list-team.component';
 import { HomeComponent } from './home/home.component';
 import { AddplayerComponent } from './addplayer/addplayer.component';
 import { FormsModule } from '@angular/forms';
+import { AddteamComponent } from './addteam/addteam.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     ListComponent,
     ListTeamComponent,
     HomeComponent,
-    AddplayerComponent
+    AddplayerComponent,
+    AddteamComponent
     
   ],
   imports: [
