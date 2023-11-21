@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:'Home',component:HomeComponent},
   {path:'AddPlayer',component:AddplayerComponent},
   {path:'AddTeam',component:AddteamComponent},
-  {path:'EditPlayer',component:EditplayerComponent}
+  {path:'EditPlayer/:id',component:EditplayerComponent}
   
 ];
 
