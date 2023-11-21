@@ -7,6 +7,7 @@ import { PlayerComponent } from './player/player.component';
 import { ListComponent } from './list/list.component';
 import { ListTeamComponent } from './list-team/list-team.component';
 import { HomeComponent } from './home/home.component';
+import { AddplayerComponent } from './addplayer/addplayer.component';
 // import { TeamComponent } from './team/team.component';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HomeComponent } from './home/home.component';
     PlayerComponent,
     ListComponent,
     ListTeamComponent,
-    HomeComponent
+    HomeComponent,
+    AddplayerComponent
     
   ],
   imports: [
