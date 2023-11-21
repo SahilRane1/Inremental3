@@ -7,18 +7,19 @@ import { Team } from 'src/models/team.model';
   providedIn: 'root'
 })
 export class AdminService {
-  private url="https://8080-beaddfcabfedbecfacbbecabcdadeafbbdcaeafe.premiumproject.examly.io/Admin";
+  // private url="https://8080-beaddfcabfedbecfacbbecabcdadeafbbdcaeafe.premiumproject.examly.io/Admin";
+  private url2="https://8080-bdbdeccefddbfacbbecabcdadeafbbdcaeafe.premiumproject.examly.io/Admin";
  
   constructor(private httpclient:HttpClient) { }
  
   getPlayers():Observable<any[]>
   {
-    return this.httpclient.get<any[]>(this.url + '/ShowPlayers');
+    return this.httpclient.get<any[]>(this.url2 + '/ShowPlayers');
    
   }
   getTeams():Observable<any[]>
   {
-    return this.httpclient.get<any[]>(this.url + '/ShowTeams');
+    return this.httpclient.get<any[]>(this.url2 + '/ShowTeams');
   }
  
   // httpOptions={headers:new HttpHeaders({'Content-type':'application/json'})}
