@@ -11,6 +11,7 @@ import { AddplayerComponent } from './addplayer/addplayer.component';
 import { FormsModule } from '@angular/forms';
 import { AddteamComponent } from './addteam/addteam.component';
 import { EditteamComponent } from './editteam/editteam.component';
+import { GetpComponent } from './getp/getp.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { EditteamComponent } from './editteam/editteam.component';
     HomeComponent,
     AddplayerComponent,
     AddteamComponent,
-    EditteamComponent
+    EditteamComponent,
+    GetpComponent
     
   ],
   imports: [

@@ -33,6 +33,12 @@ export class AdminService {
   editTeam(id:number,teamdata:Team):Observable<Team>{
     return this.httpclient.put<Team>(this.url2+'/EditTeam/'+id,teamdata);
   }
+  editPlayer(playerdata:Player):Observable<Player>{
+    return this.httpclient.put<Player>(this.url2+'/EditPlayer/'+playerdata.id,playerdata)
+  }
+  getP(id:number):Observable<Player>{
+    return this.httpclient.get<Player>(this.url2+'/GetP/'+id)
+  }
 
  
   // httpOptions={headers:new HttpHeaders({'Content-type':'application/json'})}
