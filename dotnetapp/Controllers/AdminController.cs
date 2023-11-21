@@ -107,5 +107,71 @@ namespace dotnetapp.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet]
+        [Route("ListTeam/{id}")]
+        public IActionResult Get(int id)
+        {
+            // var data=context.Teams.ToList();
+            if(id==null)
+            {
+                return BadRequest("Id cannot be null");
+            }
+            var data=(from m in context.Teams where m.TeamId==id select m).FirstOrDefault();
+            // var data=context.Teams.Find(id);
+            if(data==null)
+            {
+                return NotFound($"Movie {id} not found");
+            }
+            return Ok(data);
+           
+        }
+        [HttpGet]
+ 
+        [Route("ListPlayer/{id}")]
+        public IActionResult GetOnePlayer(int id)
+        {
+            // var data=context.Teams.ToList();
+            if(id==null)
+            {
+                return BadRequest("Id cannot be null");
+            }
+            var data=(from m in context.Players where m.Id==id select m).FirstOrDefault();
+            // var data=context.Teams.Find(id);
+            if(data==null)
+            {
+                return NotFound($"Player {id} not found");
+            }
+            return Ok(data);
+        }
+          [HttpPut]
+        [Route("EditTeam/{id}")]
+        public IActionResult Put(int id, Team Team)
+        {
+            if(ModelState.IsValid)
+            {
+                Team mv = context.Teams.Find(id);
+                mv.TeamName = Team.TeamName;
+                context.SaveChanges();
+                return Ok();
+               
+ 
+ 
+ 
+            }
+            return BadRequest("Unable to Edit Record");
+        }
+        [HttpDelete]
+        [Route("DeleteTeam/{id}")]
+        public IActionResult Delete(int id)
+        {
+ 
+                var data=context.Teams.Find(id);
+                context.Teams.Remove(data);
+                context.SaveChanges();
+                return Ok();
+ 
+           
+        }
+        
     }
 }
