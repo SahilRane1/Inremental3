@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { AddplayerComponent } from './addplayer/addplayer.component';
 import { FormsModule } from '@angular/forms';
 import { AddteamComponent } from './addteam/addteam.component';
+import { EditteamComponent } from './editteam/editteam.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { AddteamComponent } from './addteam/addteam.component';
     ListTeamComponent,
     HomeComponent,
     AddplayerComponent,
-    AddteamComponent
+    AddteamComponent,
+    EditteamComponent
     
   ],
   imports: [
