@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./addplayer.component.css']
 })
 export class AddplayerComponent implements OnInit {
-  playerdata:Player;
+  playerdata:Player={id:0,teamid:0,name:'',age:0,category:'',biddingPrice:0};
   constructor(private as:AdminService,private ar:ActivatedRoute,private route:Router) { }
   SaveData(player:Player):void{
     this.playerdata=player;
