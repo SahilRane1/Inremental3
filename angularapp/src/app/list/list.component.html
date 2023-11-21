@@ -15,7 +15,8 @@
             <td>{{p.name}}</td>
             <td>{{p.age}}</td>
             <td>{{p.category}}</td>
-            <td>{{p.biddingPrice}}</td>   
+            <td>{{p.biddingPrice}}</td> 
+            <td><a [routerLink]="['/EditPlayer/',p.id]">Edit</a></td>  
         </tr>
     </tbody>
 </table>

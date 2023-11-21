@@ -51,6 +51,7 @@ namespace dotnetapp.Controllers
         public IActionResult PutPlayer(int id,Player p){
             Player pl=context.Players.Find(id);
                 pl.Name=p.Name;
+                pl.TeamId=p.TeamId;
                 pl.Age=p.Age;
                 pl.BiddingPrice=p.BiddingPrice;
                 pl.Category=p.Category;
