@@ -8,126 +8,39 @@ using dotnetapp.Models;
 
 namespace dotnetapp.Controllers
 {
+
+   
     [ApiController]
     [Route("/[controller]")]
     public class AdminController : ControllerBase
     {
         private readonly ApplicationDbContext context;
+    //    ApplicationDbContext context = new ApplicationDbContext();
 
         public AdminController(ApplicationDbContext _context)
         {
             context = _context;
         }
-       
-        [HttpPost]
-        [Route("AddPlayer")]
-        public IActionResult PostPlayer(Player p){
-            context.Players.Add(p);
-            context.SaveChanges();
-            return Created("Player Added Successfully",p);
-        }
-        [HttpPost]
-        [Route("AddTeam")]
-        public IActionResult PostTeam(Team t){
-            context.Teams.Add(t);
-            context.SaveChanges();
-            return Created("Team Added Successfully",t);
-        }
 
         [HttpGet]
-        [Route("ShowPlayers")]
-        public IActionResult GetPlayers(){
-            var data=context.Players.ToList();
-            return Ok(data);            
-        }
-        [HttpGet]
-        [Route("ShowTeams")]
-        public IActionResult GetTeams(){
-            var data=context.Teams.ToList();
-           
+ 
+        [Route("ListTeam")]
+        public IActionResult GetTeams()
+        {
+            var data=from m in context.Teams select m;
             return Ok(data);
         }
-        [HttpPut]
-        [Route("EditPlayer/{id}")]
-        public IActionResult PutPlayer(int id, Player Player)
-        {
-            if(ModelState.IsValid)
-            {
-                Player mv = context.Players.Find(id);
-                mv.Name = Player.Name;
-                mv.Age = Player.Age;
-                mv.Category = Player.Category;
-                mv.BiddingPrice = Player.BiddingPrice;
-                context.SaveChanges();
-                return Ok();
-               
- 
- 
- 
-            }
-        // [HttpPut]
-        // [Route("EditPlayer/{id}")]
-        // public IActionResult PutPlayer(int id,Player p){
-        //     Player pl=context.Players.Find(id);
-        //         pl.Name=p.Name;
-        //         pl.TeamId=p.TeamId;
-        //         pl.Age=p.Age;
-        //         pl.BiddingPrice=p.BiddingPrice;
-        //         pl.Category=p.Category;
-        //         context.SaveChanges();
-        //         return Ok();
-        //     // }
-            // Player pl=context.Players.Find(id);
-            // if(ModelState.IsValid){
-            //     var player = new Player
-            // {
-            //     Id= 1,
-            //     Name = "John Doe",
-            //     Age= 24,
-            //     BiddingPrice= 25,
-            //     Category="asd"
-            // };
-            // }
-                // return Ok();
 
-           
-        }     
-        //   [HttpPut]
-        // [Route("EditPlayer/{id}")]
-        // public IActionResult PutPlayer(int id ,Player players)
-        // {
-        //     var data = context.Players.Find(id);
- 
-        //     if(ModelState.IsValid)
-        //     {
-        //         player.Age = players.Age;
-        //         player.Name = players.Name;
-        //         player.Category = players.Category;
-        //         player.BiddingPrice = players.BiddingPrice;
-        //         context.SaveChanges();
-        //     }
-        //     return Ok();                
-           
-        // }
-
-       [HttpDelete]
-        [Route("DeletePlayer/{id}")]
-        public IActionResult DeletePlayer(int id)
-        {
-            try
-            {
-                
-                var data = context.Players.Find(id);
-                context.Players.Remove(data);
-                context.SaveChanges();
-                return Ok();
-            }
-            catch (System.Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
         [HttpGet]
+        [Route("ListPlayer")]
+        public IActionResult GetPlayer()
+        {
+            var data=from m in context.Players select m;
+            return Ok(data);
+        }
+ 
+        [HttpGet]
+ 
         [Route("ListTeam/{id}")]
         public IActionResult Get(int id)
         {
@@ -145,6 +58,7 @@ namespace dotnetapp.Controllers
             return Ok(data);
            
         }
+
         [HttpGet]
  
         [Route("ListPlayer/{id}")]
@@ -162,8 +76,28 @@ namespace dotnetapp.Controllers
                 return NotFound($"Player {id} not found");
             }
             return Ok(data);
+           
         }
-          [HttpPut]
+        [HttpPost]
+        [Route("AddTeam")]
+        public IActionResult Post(Team Team)
+        {
+            if(ModelState.IsValid)
+            {
+                try{
+                    context.Teams.Add(Team);
+                    context.SaveChanges();
+ 
+                }
+                catch(System.Exception ex){
+                    return BadRequest(ex.InnerException.Message);
+ 
+                }
+            }
+            return Created("Record Added",Team);
+ 
+        }
+        [HttpPut]
         [Route("EditTeam/{id}")]
         public IActionResult Put(int id, Team Team)
         {
@@ -184,7 +118,7 @@ namespace dotnetapp.Controllers
         [Route("DeleteTeam/{id}")]
         public IActionResult Delete(int id)
         {
- 
+  
                 var data=context.Teams.Find(id);
                 context.Teams.Remove(data);
                 context.SaveChanges();
@@ -192,6 +126,73 @@ namespace dotnetapp.Controllers
  
            
         }
-        
+
+
+        // ------------Player Controller---------------------
+
+        [HttpPost]
+        [Route("AddPlayer")]
+        public IActionResult Post(Player Player)
+        {
+            if(ModelState.IsValid)
+            {
+                try{
+                    context.Players.Add(Player);
+                    context.SaveChanges();
+ 
+                }
+                catch(System.Exception ex){
+                    return BadRequest(ex.InnerException.Message);
+ 
+                }
+            }
+            return Created("Record Added", Player);
+ 
+        }
+
+        [HttpPut]
+        [Route("EditPlayer/{id}")]
+        public IActionResult PutPlayer(int id, Player Player)
+        {
+            if(ModelState.IsValid)
+            {
+                Player mv = context.Players.Find(id);
+                mv.Name = Player.Name;
+                mv.Age = Player.Age;
+                mv.Category = Player.Category;
+                mv.BiddingPrice = Player.BiddingPrice;
+                context.SaveChanges();
+                return Ok();
+               
+ 
+ 
+ 
+            }
+            return BadRequest("Unable to Edit Record");
+        }
+
+        [HttpDelete]
+        [Route("DeletePlayer/{id}")]
+        public IActionResult DeletePlayer(int id)
+        {
+  
+                var data=context.Players.Find(id);
+                context.Players.Remove(data);
+                context.SaveChanges();
+                return Ok();
+ 
+           
+        }
+
+        [HttpGet]
+        [Route("DisplayTeamPlayers/(id)")]
+ 
+        public IActionResult GetMovieDetail(int id)
+        {
+            var data = from d in context.Players where d.TeamId == id select new{
+                Name = d.Name, Age = d.Age, Category = d.Category, BiddingPrice = d.BiddingPrice};
+                return Ok(data);
+        }
+
     }
 }
