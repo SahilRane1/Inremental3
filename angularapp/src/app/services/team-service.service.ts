@@ -11,7 +11,7 @@ export class TeamServiceService {
 
   constructor(private httpclient : HttpClient) { }
 
-  private url = 'https://8080-addabcfedcbbadfacbbecabcdadeafbbdcaeafe.premiumproject.examly.io/Admin'
+  private url = 'https://8080-bdbdeccefddbfacbbecabcdadeafbbdcaeafe.premiumproject.examly.io/Admin';
 
 
   httpOptions = {headers : new HttpHeaders({'Content-type': 'application/json'})}
@@ -40,11 +40,6 @@ export class TeamServiceService {
     return this.httpclient.delete<IPlayer>(this.url + '/DeletePlayer/' + player.id, this.httpOptions)
   }
 
-  
-  
-  
-
-  
   getTeams() : Observable<ITeam[]> {
     return this.httpclient.get<ITeam[]>(this.url + '/ListTeam')
   }
@@ -52,8 +47,6 @@ export class TeamServiceService {
   getTeam(id : number) : Observable<ITeam> {
     return this.httpclient.get<ITeam>(this.url + '/ListTeam/' + id)
   }
-  
-
   AddTeam(team : ITeam) : Observable<ITeam> {
     return this.httpclient.post<ITeam>(this.url + '/AddTeam', team, this.httpOptions)
   }
@@ -65,8 +58,4 @@ export class TeamServiceService {
   DeleteTeam(team : ITeam) : Observable<ITeam> {
     return this.httpclient.delete<ITeam>(this.url + '/DeleteTeam/' + team.teamId, this.httpOptions)
   }
-
-
-
-
 }
